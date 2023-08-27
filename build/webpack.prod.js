@@ -22,7 +22,7 @@ const prodConfig = {
         ]
       },
       {
-        test: /\.styl(us)$/,
+        test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -32,7 +32,7 @@ const prodConfig = {
             }
           },
           'postcss-loader',
-          'stylus-loader'
+          'sass-loader'
         ]
       }
     ]

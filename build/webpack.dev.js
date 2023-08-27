@@ -28,7 +28,7 @@ const devConfig = {
         ]
       },
       {
-        test: /\.styl(us)$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           {
@@ -38,11 +38,12 @@ const devConfig = {
             }
           },
           'postcss-loader',
-          'stylus-loader'
+          'sass-loader'
         ]
       }
     ]
   },
+  
   output: {
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].chunk.js'

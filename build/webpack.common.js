@@ -6,7 +6,7 @@ const webpack = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../src/main.js')
+    main: path.resolve(__dirname, '../src/main.ts')
   },
   module: {
     rules: [
@@ -14,6 +14,17 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader',
+          {
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.vue$/] }
+          }
+        ]
       },
       {
         test: /\.vue$/,
@@ -95,6 +106,6 @@ module.exports = {
       '@': path.resolve(__dirname, '../src'),
       '@img': path.resolve(__dirname, '../src/assets/img')
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.ts', '.js', '.vue']
   }
 }
